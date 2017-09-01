@@ -18,9 +18,8 @@ The project is created with Maven, so you just need to import it to IDE [Spring 
 Create a MySQL database with the name `accounts`and add the credentials to `/resources/application.properties`.  
 The default ones are :
 
-# ====
 ## DATA SOURCE
-# ====
+
 - spring.datasource.url = jdbc:mysql://localhost:3306/accounts
 - spring.datasource.username = root
 - spring.datasource.password = 
