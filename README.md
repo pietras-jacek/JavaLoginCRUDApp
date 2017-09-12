@@ -9,6 +9,7 @@ This project is based on the [Spring Boot](http://projects.spring.io/spring-boot
 - Spring Core
 - Spring Data (Hibernate & MySQL)
 - Spring MVC (Tomcat)
+- Spring Security
 - [Thymleaf](www.thymeleaf.org)
 
 ## Installation 

@@ -48,11 +48,15 @@ CREATE TABLE `user_role` (
 
 INSERT INTO `accounts`.`role` (`role_id`, `role`) VALUES ('1', 'ADMIN');
 
-CREATE TABLE `EMP_TBL` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
+CREATE TABLE `employee` (
+  `employee_id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(45) NOT NULL,
+  `lastname` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `address` varchar(45) NOT NULL,
+  `street` varchar(50) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `postcode` varchar(50) NOT NULL,
+  `birthdate` varchar(50) NOT NULL,
   `telephone` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`employee_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

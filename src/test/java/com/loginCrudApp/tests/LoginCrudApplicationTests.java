@@ -1,4 +1,4 @@
-package com.rekrutacja.netpc.ZadanieRekrutacyjne;
+package com.loginCrudApp.tests;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ZadanieRekrutacyjneApplicationTests {
+public class LoginCrudApplicationTests {
 
 	@Test
 	public void contextLoads() {
