@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="pl">
-
+<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
 
 
@@ -26,64 +26,74 @@
 		<h2>Dane pracownika</h2>
 		<div>
 			<form class="form-horizontal" th:object="${employee}"
-				th:action="@{/employee}" method="post">
-				<input type="hidden" th:field="*{id}"/>
+				th:action="@{/employee}" role="form" method="post">
+				<input type="hidden" th:field="*{id}" />
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Id pracownika:</label>
+					<label class="col-sm-2 control-label"
+						th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Imie:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{firstName}" class="form-control" placeholder="Imię"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label 
+						th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="validation-message"
+						>Nazwisko:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{lastName}" class="form-control" placeholder="Nazwisko"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label"
+						th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+						>Email:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{email}" class="form-control" placeholder="Adres email"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label"
+						th:if="${#fields.hasErrors('street')}" th:errors="*{street}">Ulica:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{street}" class="form-control" placeholder="Ulica"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label"
+						th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Miasto:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{city}" class="form-control" placeholder="Miasto"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label"
+						th:if="${#fields.hasErrors('postcode')}" th:errors="*{postcode}">Kod
+						pocztowy:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" th:field="*{postcode}" class="form-control" placeholder="Kod pocztowy"/>
+					</div>
+				</div>
 
-				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Imie:</label>
+					<label class="col-sm-2 control-label"
+						th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}">Data
+						urodzenia:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{firstName}" />
+						<input type="date" th:type="date" class="form-control"
+							th:field="*{birthdate}" class="form-control" placeholder="Data urodzenia"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Nazwisko:</label>
+					<label class="col-sm-2 control-label"
+						th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}">Telefon:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{lastName}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Email:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{email}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Ulica:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{street}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Miasto:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{city}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Kod pocztowy:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{postcode}" />
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Data urodzenia:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{birthdate}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Telefon:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" th:field="*{telephone}" />
+						<input type="text" class="form-control" th:field="*{telephone}" class="form-control" placeholder="Telefon"/>
 					</div>
 				</div>
 				<div class="row">
 					<button type="submit" class="btn btn-default">Zapisz</button>
 				</div>
+				<span th:utext="${successMessage}"></span>
 			</form>
 		</div>
 	</div>

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="pl">
+  <meta charset="UTF-8">
 <title>Spring Security Tutorial</title>
 
 <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
 
 <link rel="stylesheet" type="text/css"
-	 th:href="@{/resources/bootstrap.min.css}"/>
-	 
-<script type="text/javascript" th:src="@{/resources/jquery-3.2.1.min.js}" ></script>	
+	th:href="@{/resources/bootstrap.min.css}" />
+
+<script type="text/javascript"
+	th:src="@{/resources/jquery-3.2.1.min.js}"></script>
 <script type="text/javascript" th:src="@{/resources/popper.min.js}"></script>
 <script type="text/javascript" th:src="@{/resources/bootstrap.min.js}"></script>
 
@@ -27,8 +27,8 @@
 
 <body>
 	<form th:action="@{/registration}" method="get">
-		<button class="btn btn-md btn-warning btn-block" type="Submit">Go
-			To Registration Page</button>
+		<button class="btn btn-md btn-warning btn-block" type="Submit">Przejdź
+			do formularza rejestracyjnego</button>
 	</form>
 
 	<div class="container">
@@ -42,8 +42,8 @@
 				name="password" class="form-control" /> <br />
 
 			<div align="center" th:if="${param.error}">
-				<p style="font-size: 20; color: #FF1C19;">Email or Password
-					invalid, please verify</p>
+				<p style="font-size: 20; color: #FF1C19;">Adres email lub hasło
+					są niepoprawne. Spróbuj ponownie</p>
 			</div>
 			<button class="btn btn-lg btn-primary btn-block" name="Submit"
 				value="Login" type="Submit" th:text="Login"></button>

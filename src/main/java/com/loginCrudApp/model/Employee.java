@@ -8,9 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -48,8 +52,11 @@ public class Employee {
 	private String postcode;
 
 	@Column(name = "birthdate")
-	@NotEmpty(message = "*Wprowadź datę urodzenia pracownika")
-	private String birthdate;
+
+	@NotNull
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Past
+	private Date birthdate;
 
 	@Column(name = "telephone")
 	@NotEmpty(message = "*Wprowadź numer telefeonu pracownika")
@@ -111,11 +118,11 @@ public class Employee {
 		this.postcode = postcode;
 	}
 
-	public String getBirthdate() {
+	public Date getBirthdate() {
 		return birthdate;
 	}
 
-	public void setBirthdate(String birthdate) {
+	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}
 

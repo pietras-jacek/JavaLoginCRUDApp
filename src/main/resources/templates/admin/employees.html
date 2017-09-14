@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="pl">
-
+<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
 
 
@@ -23,11 +23,11 @@
 	<div class="container">
 		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 		<div th:if="${not #lists.isEmpty(employees)}">
-			<h2>Product List</h2>
+			<h2>Lista pracownikÃ³w</h2>
 			<table class="table table-striped">
 				<tr>
 					<th>Id</th>
-					<th>Imiê</th>
+					<th>ImiÄ™</th>
 					<th>Nazwisko</th>
 					<th>Adres email</th>
 					<th>Ulica</th>
@@ -35,20 +35,20 @@
 					<th>Kod pocztowy</th>
 					<th>Data urodzenia</th>
 					<th>Telefon</th>
-					<th>Podgl¹d</th>
+					<th>PodglÄ…d</th>
 					<th>Edycja</th>
 					<th>Usuwanie</th>
 				</tr>
 				<tr th:each="employee : ${employees}">
 					<td th:text="${employee.productId}">Id pracownika</td>
-					<td th:text="${employee.name}">Imiê</td>
+					<td th:text="${employee.name}">ImiÄ™</td>
 					<td th:text="${employee.lastname}">Nazwisko</td>
 					<td th:text="${employee.email}">Adres email</td>
 					<td th:text="${employee.street}">Ulica</td>
 					<td th:text="${employee.postcode}">Kod pocztowy</td>
 					<td th:text="${employee.birthdate}">Data urodzenia</td>
 					<td th:text="${employee.telephone}">Telefon</td>
-					<td><a th:href="${ '/admin/home/employee/' + employee.id}">Podgl¹d</a></td>
+					<td><a th:href="${ '/admin/home/employee/' + employee.id}">PodglÄ…d</a></td>
 					<td><a th:href="${'/admin/home/employee/edit/' + employee.id}">Edycja</a></td>
 					<td><a th:href="${'/admin/home/delete/' + employee.id}">Usuwanie</a></td>
 				</tr>
