@@ -1,6 +1,6 @@
 package com.loginCrudApp.model;
 
-import java.util.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,12 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Pattern;
+
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.joda.time.DateTime;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-
 
 @Entity
 @Table(name = "employee")
@@ -28,10 +30,12 @@ public class Employee {
 
 	@Column(name = "firstname")
 	@NotEmpty(message = "*wprowadź imię pracownika")
+	@Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,}$", message = "Imię musi zaczynać się od dużej litery")
 	private String firstName;
 
 	@Column(name = "lastname")
 	@NotEmpty(message = "*wprowadź nazwisko pracownika")
+	@Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,}[[\\\\s]{0,1}[\\\\-]{0,1}[\\\\s]{0,1}[A-ZĄĆĘŁŃÓŚŹŻ]{0,1}[a-ząćęłńóśźż]{0,}]{0,}$", message = "Nazwisko musi zaczynać się od dużej litery")
 	private String lastName;
 
 	@Column(name = "email")
@@ -41,22 +45,25 @@ public class Employee {
 
 	@Column(name = "street")
 	@NotEmpty(message = "*Wprowadź ulicę zamieszkania pracownika")
+	@Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻ]{0,}[a-ząćęłńóśźż]{1,}$", message = "Ulica musi zaczynać się od dużej litery")
 	private String street;
 
 	@Column(name = "city")
 	@NotEmpty(message = "*Wprowadź miasto zamieszkania pracownika")
+	@Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,}$", message = "Miasto musi zaczynać się od dużej litery")
 	private String city;
 
 	@Column(name = "postcode")
 	@NotEmpty(message = "*Wprowadź kod pocztowy pracownika")
+	@Pattern(regexp = "^[0-9]{2}-[0-9]{3}$", message = "Niepoprawny format kodu pocztowego (xxx-xxx)")
 	private String postcode;
 
+	@Autowired
 	@Column(name = "birthdate")
-
-	@NotNull
+	@NotNull(message = "*Wprowadź datę urodzenia pracownika zgodnie ze wzorcem (dd/MM/yyyy)")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Past
-	private Date birthdate;
+	private DateTime birthdate;
 
 	@Column(name = "telephone")
 	@NotEmpty(message = "*Wprowadź numer telefeonu pracownika")
@@ -118,11 +125,11 @@ public class Employee {
 		this.postcode = postcode;
 	}
 
-	public Date getBirthdate() {
+	public DateTime getBirthdate() {
 		return birthdate;
 	}
 
-	public void setBirthdate(Date birthdate) {
+	public void setBirthdate(DateTime birthdate) {
 		this.birthdate = birthdate;
 	}
 
