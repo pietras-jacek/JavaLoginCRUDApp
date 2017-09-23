@@ -2,6 +2,8 @@ package com.loginCrudApp.model;
 
 
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,12 +47,12 @@ public class Employee {
 
 	@Column(name = "street")
 	@NotEmpty(message = "*Wprowadź ulicę zamieszkania pracownika")
-	@Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻ]{0,}[a-ząćęłńóśźż]{1,}$", message = "Ulica musi zaczynać się od dużej litery")
+	//@Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,}$", message = "Ulica musi zaczynać się od dużej litery")
 	private String street;
 
 	@Column(name = "city")
 	@NotEmpty(message = "*Wprowadź miasto zamieszkania pracownika")
-	@Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,}$", message = "Miasto musi zaczynać się od dużej litery")
+	//@Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż][0-9]{1,}$", message = "Miasto musi zaczynać się od dużej litery")
 	private String city;
 
 	@Column(name = "postcode")
@@ -60,10 +62,10 @@ public class Employee {
 
 	@Autowired
 	@Column(name = "birthdate")
-	@NotNull(message = "*Wprowadź datę urodzenia pracownika zgodnie ze wzorcem (dd/MM/yyyy)")
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@NotNull(message = "*Wprowadź datę urodzenia pracownika zgodnie ze wzorcem (yyyy-MM-dd)")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Past
-	private DateTime birthdate;
+	private Date birthdate;
 
 	@Column(name = "telephone")
 	@NotEmpty(message = "*Wprowadź numer telefeonu pracownika")
@@ -125,11 +127,11 @@ public class Employee {
 		this.postcode = postcode;
 	}
 
-	public DateTime getBirthdate() {
+	public Date getBirthdate() {
 		return birthdate;
 	}
 
-	public void setBirthdate(DateTime birthdate) {
+	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}
 

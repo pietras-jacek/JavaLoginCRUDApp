@@ -56,7 +56,7 @@ CREATE TABLE `employee` (
   `street` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
   `postcode` varchar(50) NOT NULL,
-  `birthdate` varchar(50) NOT NULL,
+  `birthdate` DATE,
   `telephone` varchar(45) NOT NULL,
   PRIMARY KEY (`employee_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
