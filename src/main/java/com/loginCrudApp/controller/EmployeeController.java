@@ -29,11 +29,11 @@ public class EmployeeController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/admin/home/employees", method = RequestMethod.GET)
+	@RequestMapping(value = "/employees", method = RequestMethod.GET)
 	public String list(Model model) {
 		model.addAttribute("employees", employeeService.listAllEmployees());
 		System.out.println("Returning remployees:");
-		return "/admin/home/employees";
+		return "/admin/employees";
 	}
 
 	/**
@@ -43,10 +43,10 @@ public class EmployeeController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/admin/home/employee/{id}")
+	@RequestMapping(value = "/employee/{id}")
 	public String showEmployee(@PathVariable Integer id, Model model) {
 		model.addAttribute("employee", employeeService.getEmployeeById(id));
-		return "admin/employeeshow";
+		return "admin/employeeShow";
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class EmployeeController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/admin/home/employee/new")
+	@RequestMapping(value = "/employee/new")
 	public String newEmployee(Model model) {
 		model.addAttribute("employee", new Employee());
 		return "admin/employeeform";

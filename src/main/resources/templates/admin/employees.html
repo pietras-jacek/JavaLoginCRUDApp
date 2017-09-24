@@ -17,11 +17,9 @@
 
 <title>Spring Boot Exemple</title>
 
-<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
 </head>
 <body>
 	<div class="container">
-		<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 		<div th:if="${not #lists.isEmpty(employees)}">
 			<h2>Lista pracowników</h2>
 			<table class="table table-striped">
@@ -40,11 +38,12 @@
 					<th>Usuwanie</th>
 				</tr>
 				<tr th:each="employee : ${employees}">
-					<td th:text="${employee.productId}">Id pracownika</td>
-					<td th:text="${employee.name}">Imię</td>
-					<td th:text="${employee.lastname}">Nazwisko</td>
+					<td th:text="${employee.id}">Id pracownika</td>
+					<td th:text="${employee.firstName}">Imię</td>
+					<td th:text="${employee.lastName}">Nazwisko</td>
 					<td th:text="${employee.email}">Adres email</td>
 					<td th:text="${employee.street}">Ulica</td>
+					<td th:text="${employee.city}">Ulica</td>
 					<td th:text="${employee.postcode}">Kod pocztowy</td>
 					<td th:text="${employee.birthdate}">Data urodzenia</td>
 					<td th:text="${employee.telephone}">Telefon</td>
