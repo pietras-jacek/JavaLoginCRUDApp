@@ -47,7 +47,7 @@
 					<td th:text="${employee.postcode}">Kod pocztowy</td>
 					<td th:text="${employee.birthdate}">Data urodzenia</td>
 					<td th:text="${employee.telephone}">Telefon</td>
-					<td><a th:href="${ '/admin/home/employee/' + employee.id}">Podgląd</a></td>
+					<td><a th:href="${ '/employee/' + employee.id}">Podgląd</a></td>
 					<td><a th:href="${'/admin/home/employee/edit/' + employee.id}">Edycja</a></td>
 					<td><a th:href="${'/admin/home/delete/' + employee.id}">Usuwanie</a></td>
 				</tr>
